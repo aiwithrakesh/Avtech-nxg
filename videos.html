@@ -179,19 +179,26 @@
         </section>
 
         <!-- Videos Grid -->
-        <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
+        <section id="featured-videos" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-amber-600 bg-clip-text text-transparent">Featured Videos</h2>
                     <p class="text-lg text-slate-600 max-w-2xl mx-auto">Watch our latest product demonstrations and expert reviews</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     <!-- Video 1 -->
                     <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-slate-100">
-                        <div class="relative w-full bg-black" style="padding-bottom: 56.25%;">
-                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/mX3Gr9bdmG8" allowfullscreen loading="lazy"></iframe>
-                        </div>
+                        <a class="video-preview-shell" href="https://www.youtube.com/watch?v=mX3Gr9bdmG8" target="_blank" rel="noreferrer noopener" aria-label="Watch Product Demonstration on YouTube">
+                            <img class="video-preview-image" src="https://i.ytimg.com/vi/mX3Gr9bdmG8/hqdefault.jpg" alt="Product Demonstration video thumbnail" loading="lazy">
+                            <span class="video-preview-overlay"></span>
+                            <span class="video-preview-play" aria-hidden="true">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5.14v13.72a1 1 0 001.53.85l10.2-6.86a1 1 0 000-1.7L9.53 4.29A1 1 0 008 5.14z"></path>
+                                </svg>
+                            </span>
+                            <span class="video-preview-label">Watch on YouTube</span>
+                        </a>
                         <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-slate-900 group-hover:text-amber-600 transition">Product Demonstration</h3>
                             <p class="text-slate-600">Watch our featured products in action</p>
@@ -200,58 +207,22 @@
 
                     <!-- Video 2 -->
                     <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-slate-100">
-                        <div class="relative w-full bg-black" style="padding-bottom: 56.25%;">
-                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/mX3Gr9bdmG8" allowfullscreen loading="lazy"></iframe>
-                        </div>
+                        <a class="video-preview-shell" href="https://www.youtube.com/watch?v=mX3Gr9bdmG8" target="_blank" rel="noreferrer noopener" aria-label="Watch Expert Review on YouTube">
+                            <img class="video-preview-image" src="https://i.ytimg.com/vi/mX3Gr9bdmG8/hqdefault.jpg" alt="Expert Review video thumbnail" loading="lazy">
+                            <span class="video-preview-overlay"></span>
+                            <span class="video-preview-play" aria-hidden="true">
+                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5.14v13.72a1 1 0 001.53.85l10.2-6.86a1 1 0 000-1.7L9.53 4.29A1 1 0 008 5.14z"></path>
+                                </svg>
+                            </span>
+                            <span class="video-preview-label">Watch on YouTube</span>
+                        </a>
                         <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-slate-900 group-hover:text-amber-600 transition">Expert Review</h3>
                             <p class="text-slate-600">Professional audio expert breakdown</p>
                         </div>
                     </div>
 
-                    <!-- Video 3 -->
-                    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-slate-100">
-                        <div class="relative w-full bg-black" style="padding-bottom: 56.25%;">
-                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/mX3Gr9bdmG8" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-slate-900 group-hover:text-amber-600 transition">Setup Guide</h3>
-                            <p class="text-slate-600">Installation and configuration tutorial</p>
-                        </div>
-                    </div>
-
-                    <!-- Video 4 -->
-                    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-slate-100">
-                        <div class="relative w-full bg-black" style="padding-bottom: 56.25%;">
-                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/mX3Gr9bdmG8" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-slate-900 group-hover:text-amber-600 transition">Technology Explained</h3>
-                            <p class="text-slate-600">Deep dive into our engineering</p>
-                        </div>
-                    </div>
-
-                    <!-- Video 5 -->
-                    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-slate-100">
-                        <div class="relative w-full bg-black" style="padding-bottom: 56.25%;">
-                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/mX3Gr9bdmG8" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-slate-900 group-hover:text-amber-600 transition">Audio Comparison</h3>
-                            <p class="text-slate-600">Before and after sound quality</p>
-                        </div>
-                    </div>
-
-                    <!-- Video 6 -->
-                    <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-slate-100">
-                        <div class="relative w-full bg-black" style="padding-bottom: 56.25%;">
-                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/mX3Gr9bdmG8" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-slate-900 group-hover:text-amber-600 transition">Customer Experience</h3>
-                            <p class="text-slate-600">Real customer testimonies</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

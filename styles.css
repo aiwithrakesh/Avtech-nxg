@@ -2210,6 +2210,68 @@ header {
   object-fit: cover;
 }
 
+.video-preview-shell {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #000000;
+  aspect-ratio: 16 / 9;
+}
+
+.video-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.video-preview-shell:hover .video-preview-image {
+  transform: scale(1.04);
+}
+
+.video-preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.1), rgba(15, 23, 42, 0.55));
+}
+
+.video-preview-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 999px;
+  background: rgba(239, 68, 68, 0.95);
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.32);
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.video-preview-shell:hover .video-preview-play {
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: 0 22px 42px rgba(15, 23, 42, 0.38);
+}
+
+.video-preview-label {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.8);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .product-gallery-preview-rail::-webkit-scrollbar {
   height: 0.4rem;
 }
