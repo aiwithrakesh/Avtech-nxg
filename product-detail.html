@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore detailed specifications and information about our premium audio products.">
+    <meta name="keywords" content="audio product details, specifications, features, technology">
+    <meta property="og:title" content="Product Details - AV Tech Solutions">
+    <meta property="og:description" content="Explore detailed specifications and information.">
+    
+    <title>Product Details - AV Tech Solutions</title>
+    
+    
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body class="bg-white text-slate-900">
+    <!-- Header Navigation -->
+    <header class="w-full">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" role="navigation" aria-label="Main Navigation">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="av_tech_logo.png" alt="AV Technology Solutions Logo" class="w-15 h-12 object-cover rounded-lg">
+                <span class="text-white font-black logo-text">AV Technology Solutions (U.K) Limited</span>
+            </a>
+        </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="nav-link active text-white font-medium hover:text-amber-500 transition pb-2" aria-current="page">Home</a>
+                    
+                    <div class="relative group">
+                        <button class="nav-link text-white font-medium hover:text-amber-500 transition pb-2 flex items-center gap-1" aria-haspopup="true" aria-expanded="false" id="productsBtn">
+                            Products
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        </button>
+                        <div class="mega-menu" id="productsMenu">
+                            <div class="grid grid-cols-3 gap-6 p-6 max-w-7xl">
+                                <!-- Column 1: Brands -->
+                                <div>
+                                    <h3 class="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">Brands</h3>
+                                    <ul id="brandList" class="space-y-1 overflow-y-auto max-h-96">
+                                        <!-- Populated by JS -->
+                                    </ul>
+                                </div>
+                                <!-- Column 2: Categories -->
+                                <div>
+                                    <h3 class="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">Categories</h3>
+                                    <ul id="categoryList" class="space-y-1 overflow-y-auto max-h-96">
+                                        <!-- Populated by JS -->
+                                    </ul>
+                                </div>
+                                <!-- Column 3: Products -->
+                                <div>
+                                    <h3 class="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">Products</h3>
+                                    <ul id="productList" class="space-y-1 overflow-y-auto max-h-96">
+                                        <!-- Populated by JS -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <a href="reviews.html" class="nav-link text-white font-medium hover:text-amber-500 transition pb-2">Reviews</a>
+                    <a href="videos.html" class="nav-link text-white font-medium hover:text-amber-500 transition pb-2">Videos</a>
+                    <a href="dealers.html" class="nav-link text-white font-medium hover:text-amber-500 transition pb-2">Dealers</a>
+                    <a href="contact.html" class="nav-link text-white font-medium hover:text-amber-500 transition pb-2">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-white p-2 hover:bg-slate-700 rounded" aria-label="Toggle menu" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="p-4 flex justify-between items-center sticky top-0 bg-slate-900 text-white">
+            <span>Menu</span>
+            <button aria-label="Close menu" id="closeMobileMenuBtn" class="p-2 hover:bg-slate-700 rounded">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="p-4" role="navigation" aria-label="Mobile Navigation">
+            <a href="index.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Home</a>
+            <div class="border-b">
+                <button class="accordion-trigger text-slate-900" data-section="products">
+                    Products
+                    <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+                <div class="accordion-content" id="products-accordion">
+                    <div id="mobileProductMenu" class="p-2"></div>
+                </div>
+            </div>
+            <a href="technology.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Technology</a>
+            <a href="reviews.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Reviews</a>
+            <a href="videos.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Videos</a>
+            <a href="dealers.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Dealers</a>
+            <a href="contact.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-12 md:py-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <nav aria-label="Breadcrumb" class="mb-6">
+                    <ol class="flex gap-2 text-sm">
+                        <li><a href="index.html" class="text-slate-300 hover:text-white">Home</a></li>
+                        <li><span class="text-slate-300">/</span></li>
+                        <li><a href="products.html" class="text-slate-300 hover:text-white">Products</a></li>
+                        <li><span class="text-slate-300">/</span></li>
+                        <li class="text-white" aria-current="page" id="breadcrumbProduct">Gotham g213</li>
+                    </ol>
+                </nav>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4" id="productTitle">Gotham g213</h1>
+                <p class="text-xl text-slate-300" id="productBrand">JL Audio Powered Subwoofer</p>
+            </div>
+        </section>
+
+        <!-- Product Hero Section -->
+        <section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-start mb-12">
+                    <!-- Product Image -->
+                    <div class="flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg h-96 md:h-auto md:min-h-96">
+                        <svg class="w-32 h-32 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2m0-14c0-1.105 1.343-2 3-2s3 .895 3 2m0 14c0 1.105 1.343 2 3 2s3-.895 3-2m0-14c0-1.105-1.343-2-3-2s-3 .895-3 2"></path></svg>
+                    </div>
+
+                    <!-- Product Information -->
+                    <div>
+                        <div class="mb-6">
+                            <h2 class="text-3xl font-bold mb-4" id="productNameDetail">Gotham g213v2</h2>
+                            <p class="text-slate-600 text-lg mb-4" id="productDescription">
+                                The g213v2 is the flagship of the JL Audio powered subwoofer line-up, where only the ultimate will suffice, offering 4500 watts of power to drive its twin 13.5-inch active drivers.
+                            </p>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div class="mb-6">
+                            <a href="contact.html" class="px-8 py-4 bg-amber-500 text-slate-900 font-bold rounded-lg hover:bg-amber-600 transition inline-block">
+                                Contact Dealer for Pricing
+                            </a>
+                        </div>
+
+                        <!-- Quick Info -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-4 rounded">
+                                <p class="text-sm text-slate-600 mb-1">Brand</p>
+                                <p class="font-bold" id="quickBrand">JL Audio</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded">
+                                <p class="text-sm text-slate-600 mb-1">Category</p>
+                                <p class="font-bold" id="quickCategory">Subwoofer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs Section -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="tabs-container" role="tablist" aria-label="Product Information">
+                        <!-- Tab Buttons -->
+                        <div class="tabs-buttons">
+                            <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="overview-tab" id="overview-btn">Overview</button>
+                            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="features-tab" id="features-btn">Features</button>
+                            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="specs-tab" id="specs-btn">Specifications</button>
+                            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="technology-tab" id="technology-btn">Technology</button>
+                            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="finish-tab" id="finish-btn">Finish</button>
+                            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="reviews-tab" id="reviews-btn">Reviews</button>
+                            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="downloads-tab" id="downloads-btn">Downloads</button>
+                            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="warranty-tab" id="warranty-btn">Warranty</button>
+                            
+                        </div>
+
+                        <!-- Tab Content -->
+                        <div class="p-8">
+                            <!-- Overview Tab -->
+                            <section class="tab-content active" id="overview-tab" role="tabpanel" aria-labelledby="overview-btn">
+                                <h3 class="text-2xl font-bold mb-4">Overview</h3>
+                                <p class="text-slate-600 mb-4">Your first look will tell you that you are looking at something special... your first listen will confirm it beyond a shadow of a doubt.</p>
+                                <p class="text-slate-600 mb-4">The beauty of the Gotham&reg; v2 extends well beyond its exotic design and exceptional craftsmanship, aiming right at the emotional core of musical and cinematic enjoyment. This is a subwoofer system with limits that exceed the needs of the typical home theater application, delivering a weight and integrity of reproduction that can only come from a system that is always in control. Its allure lies as much in its ability to convey subtleties as in its prodigious output capabilities. It is simply devastating.</p>
+                                <p class="text-slate-600 mb-4">A luxurious, handcrafted gloss-black finish is complemented by machined aluminium and stainless steel accents for a look and feel that fits perfectly with the finest home furnishings. More importantly, the beautiful cabinet houses a pair of JL Audio's highest-technology subwoofer drivers. When demanded by program material, the Gotham's prodigious switching amplifier can deliver 4500 watts of RMS power, to take full advantage of the twin drivers' four inches of peak-to-peak excursion capability. This ensures that the Gotham can breeze through material that makes other subwoofers go into clipping, limiting or distress.</p>
+                                <p class="text-slate-600 mb-4">A very complete set of signal processing features is easily accessible on the top surface of the Gotham. These include a highly flexible low-pass filter, variable phase, switchable polarity, e.l.f. trim and JL Audio's powerful Digital Automatic Room Optimisation (D.A.R.O.) system. A calibrated microphone is included for the D.A.R.O. system. Input connections are made via unbalanced RCA connections or balanced Neutrik&reg; combo XLR/TRS jacks. Also included is an XLR output to connect a second Gotham&reg; v2 as a slave unit.</p>
+                                <p class="text-slate-600 mb-4">Listening to a Gotham&reg; v2 reveals an entirely new dimension of subwoofer performance... a dimension so satisfying that listening to lesser subwoofers will forever become an act of compromise.</p>
+                                <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                    <li>Finish: Gloss Black, hand-finished to the highest furniture-grade standard</li>
+                                    <li>Grille finish: Black fabric (separate grilles for drivers and controls)</li>
+                                    <li>Enclosure construction: Fibreglass, 2-inch (52 mm) wall thickness</li>
+                                </ul>
+                            </section>
+
+                            <!-- Features Tab -->
+                            <section class="tab-content" id="features-tab" role="tabpanel" aria-labelledby="features-btn">
+                                <h3 class="text-2xl font-bold mb-4">Key Features</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Power Modes</h4>
+                                        <p class="text-slate-600">Off, On or Automatic Signal-Sensing</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Digital Automatic Room Optimisation (D.A.R.O)</h4>
+                                        <p class="text-slate-600">18-Band Digital Automatic Room Optimisation (D.A.R.O) with included laboratory grade calibration microphone, defeatable.</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Level Modes</h4>
+                                        <p class="text-slate-600">Reference (fixed gain) or Variable from full mute to +15 dB over reference gain</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Light Modes</h4>
+                                        <p class="text-slate-600">Off, On or Dim</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Low Pass Filter Modes</h4>
+                                        <p class="text-slate-600">Off, 12 dB per octave or 24 dB per octave slope</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Low Pass Filter Crossover Frequency</h4>
+                                        <p class="text-slate-600">Variable from 30 Hz - 130 Hz</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">E.L.F Trim</h4>
+                                        <p class="text-slate-600">Variable from -12 dB to +3 dB at 25 Hz</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Phase</h4>
+                                        <p class="text-slate-600">Variable from 0 - 270 degrees</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Polarity</h4>
+                                        <p class="text-slate-600">0 or 180 degrees</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Unbalanced Inputs</h4>
+                                        <p class="text-slate-600">Stereo or Mono (two RCA Jacks)</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Balanced Inputs</h4>
+                                        <p class="text-slate-600">Stereo or Mono (two female XLR jacks)</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Output To Slave</h4>
+                                        <p class="text-slate-600">Balanced (one male XLR jack)</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Input Modes</h4>
+                                        <p class="text-slate-600">Master or Slave</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Specifications Tab -->
+                            <section class="tab-content" id="specs-tab" role="tabpanel" aria-labelledby="specs-btn">
+                                <h3 class="text-2xl font-bold mb-6">Specifications</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Model</h4>
+                                        <p class="text-slate-600">g213v2</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Enclosure Type</h4>
+                                        <p class="text-slate-600">Sealed, with curved, non-parallel walls</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Driver(s)</h4>
+                                        <p class="text-slate-600">Twin 13.5-inch (nominal diameter)</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Frequency Response (anechoic)</h4>
+                                        <p class="text-slate-600">19 - 112 Hz (+1.5 dB)</p>
+                                        <p class="text-slate-600">-3 dB at 17.5 Hz / 120 Hz</p>
+                                        <p class="text-slate-600">-10 dB at 14 Hz / 150 Hz</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Effective Piston Area</h4>
+                                        <p class="text-slate-600">214.70 sq. in.</p>
+                                        <p class="text-slate-600">(0.1386 sq. m.)</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Effective Displacement</h4>
+                                        <p class="text-slate-600">773 cu. in.</p>
+                                        <p class="text-slate-600">(12.7 litres)</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Amplifier Power</h4>
+                                        <p class="text-slate-600">4500 Watts RMS short-term</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Dimensions (H × W × D)*</h4>
+                                        <p class="text-slate-600">34.13 in. × 21.50 in. × 24.00 in.</p>
+                                        <p class="text-slate-600">867 mm × 546 mm × 610 mm</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Net Weight</h4>
+                                        <p class="text-slate-600">372 lbs.</p>
+                                        <p class="text-slate-600">(168 kg)</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4">
+                                        <h4 class="font-bold mb-2">Cabinet Finish</h4>
+                                        <p class="text-slate-600">High-Gloss Black</p>
+                                    </div>
+                                    <div class="border-l-4 border-amber-500 pl-4 md:col-span-2">
+                                        <h4 class="font-bold mb-2">Dimensions Note</h4>
+                                        <p class="text-slate-600">The height dimension includes feet, depth dimension includes grilles.</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Technology Tab with Sub-tabs -->
+                            <section class="tab-content" id="technology-tab" role="tabpanel" aria-labelledby="technology-btn">
+                                <h3 class="text-2xl font-bold mb-6">Technology</h3>
+                                
+                                <!-- Sub-tabs Container -->
+                                <div class="subtabs-container">
+                                    <div class="subtabs-buttons" role="tablist" aria-label="Technology Details">
+                                        <button class="subtab-btn active" role="tab" aria-selected="true" aria-controls="loudspeaker-subtab" id="loudspeaker-btn">Loudspeaker Technology</button>
+                                        <button class="subtab-btn" role="tab" aria-selected="false" aria-controls="electronics-subtab" id="electronics-btn">Electronics</button>
+                                        <button class="subtab-btn" role="tab" aria-selected="false" aria-controls="manufacturing-subtab" id="manufacturing-btn">Manufacturing</button>
+                                    </div>
+
+                                    <!-- Loudspeaker Sub-tab -->
+                                    <div class="subtab-content active" id="loudspeaker-subtab" role="tabpanel" aria-labelledby="loudspeaker-btn">
+                                        <h4 class="text-xl font-bold mb-4">Loudspeaker Technology</h4>
+                                        <p class="text-slate-600 mb-4">Gotham&reg; and Fathom&reg; subwoofers offer a vast performance envelope that unleashes all of the dynamics in your audio experience. It all starts with exceptional subwoofer drivers.</p>
+                                        <p class="text-slate-600 mb-4">JL Audio’s engineering department is at the forefront of research into fundamental loudspeaker behavior. JL Audio has developed proprietary electromagnetic and suspension analysis systems and invested heavily in state-of-the-art manufacturing and testing. This has borne subwoofer drivers widely considered as reference standards for linear displacement and dynamic stability. It has also resulted in numerous U.S. and international Patents issued for technologies that refine and extend the performance envelope of the dynamic driver.</p>
+                                        <p class="text-slate-600 mb-6">Designing and building superior drivers lies at the core of JL Audio’s passion for audio…and this gives JL Audio’s powered subwoofer systems a huge advantage.</p>
+
+                                        <div class="grid md:grid-cols-2 gap-6">
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">DMA-Optimised Motor System</h5>
+                                                <p class="text-slate-600">JL Audio's proprietary Dynamic Motor Analysis keeps motor force linear across an extreme range of excursion while maintaining a highly stable magnetic field over a wide power range, resulting in tighter, cleaner and more articulate bass.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">OverRoll&trade; Surround</h5>
+                                                <p class="text-slate-600">By extending over the driver's mounting flange, the OverRoll surround uses otherwise wasted diameter so excursion can increase without giving up precious cone area.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">W-Cone&trade; Surround</h5>
+                                                <p class="text-slate-600">The W-Cone unit-body cone assembly achieves remarkable stiffness with minimal mass, while also adding the torsional rigidity needed to maintain voice coil alignment at the suspension limits.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Floating-Cone&trade; Attach Method</h5>
+                                                <p class="text-slate-600">This assembly method ensures proper surround geometry in the finished speaker for more accurate excursion control and dynamic voice coil alignment.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Plateau-Reinforced Spider Attachment</h5>
+                                                <p class="text-slate-600">Derived from JL Audio's VRC&trade; technology, this heavy-duty suspension attachment relieves stress from the spider material during high excursion for improved long-term reliability.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Elevated Frame Cooling Technology</h5>
+                                                <p class="text-slate-600">Cool air is directed through slots above the top plate and onto the voice coil, improving power handling while reducing dynamic parameter shifts and power compression.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Radially Cross-Drilled Pole Piece</h5>
+                                                <p class="text-slate-600">An innovative venting system enhances thermal dissipation and power handling by directing airflow onto the voice coil former in concert with Elevated Frame cooling.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Engineered Lead-Wire System</h5>
+                                                <p class="text-slate-600">Carefully designed lead-wire routing and attachment keep wire behavior controlled and quiet even under the most extreme excursion demands.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4 md:col-span-2">
+                                                <h5 class="font-bold mb-2">Precision Built in U.S.A.</h5>
+                                                <p class="text-slate-600">JL Audio's Miramar, Florida loudspeaker production facility is among the most advanced in the world, supporting the precision build quality expected of a flagship Gotham platform. In addition to the patented technologies listed above, multiple U.S. and international patents are currently pending.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Electronics Sub-tab -->
+                                    <div class="subtab-content" id="electronics-subtab" role="tabpanel" aria-labelledby="electronics-btn">
+                                        <h4 class="text-xl font-bold mb-4">Electronics Technology</h4>
+                                        <p class="text-slate-600 mb-4">To fully realise the benefits of JL Audio's long excursion drivers, a huge amount of controlled power is needed. These lofty power requirements create a difficult challenge when the realities of typical home electrical circuits are considered.</p>
+                                        <p class="text-slate-600 mb-4">To solve this, JL Audio's electronics engineering team carefully analysed demanding program material to balance current draw and actual output power requirements against the subwoofer system's impedance characteristics. The result is an advanced switching amplifier design with a massive toroidal transformer and very high output voltage capability, precisely optimised for its driver system.</p>
+                                        <p class="text-slate-600 mb-6">In the Gotham g213v2, that amplifier delivers clean output voltage equivalent to 4,500 watts RMS while still operating comfortably within a typical household electrical circuit. It may not be magic, but it certainly borders on it.</p>
+
+                                        <div class="grid md:grid-cols-2 gap-6">
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Amplifier Architecture</h5>
+                                                <p class="text-slate-600">Advanced switching amplification, massive toroidal transformer reserves and high output voltage capability work together to deliver huge low-frequency authority with control.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Real-World Usability</h5>
+                                                <p class="text-slate-600">Despite its flagship output capability, the Gotham g213v2 is engineered to perform within the limits of a normal domestic electrical supply.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4 md:col-span-2">
+                                                <h5 class="font-bold mb-2">Digital Automatic Room Optimisation (D.A.R.O.)</h5>
+                                                <p class="text-slate-600 mb-3">Murphy's law of low-frequency acoustics says the best sounding subwoofer position is often the least practical one. JL Audio addresses this with Digital Automatic Room Optimisation, helping balance sonic performance, practicality and aesthetics.</p>
+                                                <p class="text-slate-600 mb-3">The D.A.R.O. system generates a series of calibration tones, measures response at the listening position and automatically configures an 18-band, 1/6 octave equalizer for a flatter in-room result. This makes it possible to achieve smooth, balanced sub-bass from placements that may otherwise have been compromised.</p>
+                                                <div class="text-slate-600 mb-3">
+                                                    <p class="font-bold text-slate-900 mb-3">Simple Calibration Process</p>
+                                                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                                                        <li>Connect the included calibration microphone to the front panel of the subwoofer</li>
+                                                        <li>Press the calibrate button on the front panel</li>
+                                                        <li>Hold the microphone at the primary listening position</li>
+                                                        <li>Complete the one-time setup routine in just a few minutes, with no computer required</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4 md:col-span-2">
+                                                <h5 class="font-bold mb-2">High-Damping Feedback Circuitry</h5>
+                                                <p class="text-slate-600">Covered by U.S. Patent #6,441,685, this proprietary discrete control circuit helps JL Audio's Class D switching amplifiers maintain an excellent damping factor for improved transient behavior and fidelity.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4 md:col-span-2">
+                                                <p class="text-slate-600">In addition to the patented technologies listed above, multiple U.S. and international patents are currently pending.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Manufacturing Sub-tab -->
+                                    <div class="subtab-content" id="manufacturing-subtab" role="tabpanel" aria-labelledby="manufacturing-btn">
+                                        <h4 class="text-xl font-bold mb-4">Manufacturing Excellence</h4>
+                                        <p class="text-slate-600 mb-4">JL Audio's flagship subwoofers are not treated like commodity products. Their proprietary driver platforms, complex enclosures and luxury-grade finishing standards demand specialised facilities, disciplined assembly methods and meticulous quality control at every stage.</p>
+                                        <p class="text-slate-600 mb-6">That commitment is centered in JL Audio's Miramar, Florida factory, where dedicated production teams, precision equipment and documented procedures come together to build Gotham and Fathom subwoofers to a consistently exceptional standard.</p>
+
+                                        <div class="grid md:grid-cols-2 gap-6">
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Driver Manufacturing</h5>
+                                                <p class="text-slate-600">Special patented drivers such as JL Audio's massive W7 and thin-line TW5 platforms require proprietary assembly techniques and tightly monitored production disciplines. The Miramar loudspeaker assembly facility has been specifically designed and equipped to build JL Audio's most advanced loudspeakers with consistency and precision.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Gotham&reg; Enclosure Assembly</h5>
+                                                <p class="text-slate-600">Each Gotham enclosure takes more than two weeks to produce, moving through multiple fabrication and finishing stages. The body is moulded in solid fibreglass with proprietary damping technologies and carefully engineered internal bracing to create a highly inert structure.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Furniture-Grade Finishing</h5>
+                                                <p class="text-slate-600">With wall thickness exceeding 1 inch (25 mm), each enclosure requires precision CNC machining before skilled craftsmen prepare, finish and hand polish it to the high-gloss, furniture-grade standard expected of a Gotham.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Clean Room Final Assembly</h5>
+                                                <p class="text-slate-600">Final assembly, inspection and testing are completed in a clean room environment so the Gotham's performance lives up to the sophistication of its design and construction.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Technician-Led Build Process</h5>
+                                                <p class="text-slate-600">Fathom&reg; and Gotham&reg; powered subwoofers are assembled by highly skilled technicians, with each technician responsible for the full assembly process while following documented procedures to ensure quality and consistency.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4">
+                                                <h5 class="font-bold mb-2">Precision Workstations</h5>
+                                                <p class="text-slate-600">Ergonomic workstations with hydraulic lifts and multiple torque-controlled tools support efficient, repeatable assembly to the exact specifications defined by JL Audio's engineering team.</p>
+                                            </div>
+                                            <div class="border-l-4 border-amber-500 pl-4 md:col-span-2">
+                                                <h5 class="font-bold mb-2">Testing and Verification</h5>
+                                                <p class="text-slate-600">Quality is engineered into every JL Audio product, but it is also verified and documented through defined, repeatable test protocols. Every Fathom and Gotham component is tested individually and as a connected system before assembly, and every finished subwoofer must pass electrical, functional and acoustic testing before shipping to authorised dealers.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Finish Tab -->
+                            <section class="tab-content" id="finish-tab" role="tabpanel" aria-labelledby="finish-btn">
+                                <h3 class="text-2xl font-bold mb-4">Available Finishes</h3>
+                                <div class="grid md:grid-cols-3 gap-6">
+                                    <article class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                                        <div class="h-[220px] bg-slate-950 flex items-center justify-center overflow-hidden p-3">
+                                            <img src="Brands/JLAudio/Gotham-g213v2/g213v2-FINISH.jpg" alt="JL Audio Gotham g213v2 high-gloss black finish detail" class="max-w-full max-h-full object-contain block">
+                                        </div>
+                                        <div class="px-4 py-3 bg-white">
+                                            <h4 class="font-semibold text-base text-slate-900">High-Gloss Black</h4>
+                                        </div>
+                                    </article>
+
+                                    <article class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                                        <div class="h-[220px] bg-slate-950 flex items-center justify-center overflow-hidden p-3">
+                                            <img src="Brands/JLAudio/Gotham-g213v2/g213v2-FINISH.jpg" alt="JL Audio Gotham g213v2 metal accent detailing" class="max-w-full max-h-full object-contain block">
+                                        </div>
+                                        <div class="px-4 py-3 bg-white">
+                                            <h4 class="font-semibold text-base text-slate-900">Metal Accent Detailing</h4>
+                                        </div>
+                                    </article>
+
+                                    <article class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                                        <div class="h-[220px] bg-slate-950 flex items-center justify-center overflow-hidden p-3">
+                                            <img src="Brands/JLAudio/Gotham-g213v2/g213v2-FINISH.jpg" alt="JL Audio Gotham g213v2 control surface finish" class="max-w-full max-h-full object-contain block">
+                                        </div>
+                                        <div class="px-4 py-3 bg-white">
+                                            <h4 class="font-semibold text-base text-slate-900">Control Surface Finish</h4>
+                                        </div>
+                                    </article>                                   
+                                </div>
+                            </section>
+
+                            <!-- Reviews Tab -->
+                            <section class="tab-content" id="reviews-tab" role="tabpanel" aria-labelledby="reviews-btn">
+                                <style>
+                                    #reviews-tab .reviews-grid > article:nth-of-type(5),
+                                    #reviews-tab .reviews-grid > div.hidden {
+                                        display: none;
+                                    }
+                                </style>
+                                <h3 class="text-2xl font-bold mb-6">Reviews</h3>
+                                <div class="reviews-grid grid gap-6">
+                                    <article class="hidden bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8">
+                                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                            <div>
+                                                <p class="text-lg font-bold text-slate-900">The absolute sound</p>
+                                                <p class="text-sm text-slate-500">Aug 25, 2015</p>
+                                            </div>
+                                            <p class="text-sm font-medium text-amber-600">Jonathan Valin</p>
+                                        </div>
+                                        <p class="text-slate-700 leading-relaxed">&ldquo;For those of you with the space and the dough, those of you into low bass (and who isn&rsquo;t with the right music?), those of you with decent main speakers looking for a ticket to the Big Leagues at a Minor League price, even those of you with ultra-high-end loudspeakers that already have outstanding bass, the Gothams and the CR-1 are the paths to a full-range bliss you&rsquo;ve never before experienced, because, in my own experience, it&rsquo;s never before been available at this level of unalloyed satisfaction. Both the Gotham subs and JL&rsquo;s CR-1 crossover, obviously, get my highest, most unqualified, most enthusiastic recommendation. I just wish all of you could hear them!&rdquo;</p>
+                                    </article>
+                                    <article class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8">
+                                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                            <div>
+                                                <p class="text-lg font-bold text-slate-900">Tone Audio</p>
+                                                <p class="text-sm text-slate-500">2009</p>
+                                            </div>
+                                            <p class="text-sm font-medium text-amber-600">Jeff Dorgay</p>
+                                        </div>
+                                        <p class="text-slate-900 font-semibold mb-3">"Top of the Mountain"</p>
+                                        <p class="text-slate-700 leading-relaxed">"The Gotham is a fantastic product that can transform whatever system in which it is placed, no matter how good. If you have the room and the extra power to support it, it is one of the rare pieces of high-end audio gear that will take you somewhere you have never been. Highly recommended."</p>
+                                    </article>
+                                    <article class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8">
+                                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                            <div>
+                                                <p class="text-lg font-bold text-slate-900">Home Theater Review</p>
+                                                <p class="text-sm text-slate-500">Oct 17, 2008</p>
+                                            </div>
+                                            <p class="text-sm font-medium text-amber-600">Andrew Robinson</p>
+                                        </div>
+                                        <p class="text-slate-700 leading-relaxed">"One of the fastest subwoofers I've ever encountered, regardless of price. There are many subs that cost way more than the Gotham that can't match its level of performance and output."</p>
+                                    </article>
+                                    <article class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8">
+                                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                            <div>
+                                                <p class="text-lg font-bold text-slate-900">Ultra Audio</p>
+                                                <p class="text-sm text-slate-500">Apr 1, 2008</p>
+                                            </div>
+                                            <p class="text-sm font-medium text-amber-600">Jeff Fritz</p>
+                                        </div>
+                                        <p class="text-slate-700 leading-relaxed">"The Gotham g213 produces state-of-the-art bass that will improve the highest of high-end systems. I&rsquo;ve heard no other subwoofer that can match it."</p>
+                                    </article>
+                                    <article class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8">
+                                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                                            <div>
+                                                <p class="text-lg font-bold text-slate-900">The absolute sound</p>
+                                                <p class="text-sm text-slate-500">Aug 25, 2015</p>
+                                            </div>
+                                            <span class="text-amber-500 text-sm font-bold">★★★★★</span>
+                                        </div>
+                                        <p class="hidden text-sm text-slate-600 mb-2">Tone Audio, 2009 by Jeff Dorgay</p>
+                                        <p class="text-slate-600">The published review presents the Gotham as a transformative subwoofer capable of elevating already serious systems into a much more immersive experience.</p>
+                                    </article>
+                                    <div class="hidden border-b pb-6">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h4 class="font-bold">Luxury Build Quality</h4>
+                                            <span class="text-amber-500 text-sm font-bold">★★★★★</span>
+                                        </div>
+                                        <p class="hidden text-sm text-slate-600 mb-2">Source summary</p>
+                                        <p class="text-slate-600">The product page also highlights the Gotham's handcrafted cabinet, premium metal detailing and top-surface control system as part of its flagship positioning.</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Downloads Tab -->
+                            <section class="tab-content" id="downloads-tab" role="tabpanel" aria-labelledby="downloads-btn">
+                                <h3 class="text-2xl font-bold mb-6">Downloads & Documentation</h3>
+                                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+                                    <a href="#" class="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                                        <div class="absolute top-0 right-0 h-24 w-24 rounded-full bg-amber-500/10 blur-2xl"></div>
+                                        <div class="relative flex items-start justify-between gap-4 mb-8">
+                                            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-300 border border-amber-400/20">
+                                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                            </div>
+                                            <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-slate-200 uppercase">PDF</span>
+                                        </div>
+                                        <div class="relative">
+                                            <p class="text-white text-lg font-bold leading-snug mb-2">JL Audio Gotham & Fathom Series Brochure</p>
+                                            <p class="text-slate-300 text-sm leading-relaxed">Series overview and product family information</p>
+                                        </div>
+                                        <div class="relative mt-8 flex items-center justify-between text-sm text-amber-300">
+                                            <span>Open document</span>
+                                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                        </div>
+                                    </a>
+
+                                    <a href="#" class="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                                        <div class="absolute top-0 right-0 h-24 w-24 rounded-full bg-cyan-400/10 blur-2xl"></div>
+                                        <div class="relative flex items-start justify-between gap-4 mb-8">
+                                            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-400/15 text-cyan-300 border border-cyan-300/20">
+                                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                            </div>
+                                            <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-slate-200 uppercase">Manual</span>
+                                        </div>
+                                        <div class="relative">
+                                            <p class="text-white text-lg font-bold leading-snug mb-2">JL Audio Gotham g213 Manual</p>
+                                            <p class="text-slate-300 text-sm leading-relaxed">Operating instructions, setup guidance and controls</p>
+                                        </div>
+                                         <div class="relative mt-8 flex items-center justify-between text-sm text-amber-300">
+                                            <span>Open document</span>
+                                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                        </div>
+                                    </a>
+
+                                    <a href="#" class="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                                        <div class="absolute top-0 right-0 h-24 w-24 rounded-full bg-fuchsia-400/10 blur-2xl"></div>
+                                        <div class="relative flex items-start justify-between gap-4 mb-8">
+                                            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-fuchsia-400/15 text-fuchsia-300 border border-fuchsia-300/20">
+                                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                            </div>
+                                            <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-slate-200 uppercase">Catalogue</span>
+                                        </div>
+                                        <div class="relative">
+                                            <p class="text-white text-lg font-bold leading-snug mb-2">JL Audio g213 Catalogue Sheet</p>
+                                            <p class="text-slate-300 text-sm leading-relaxed">Key specifications and dimensional reference</p>
+                                        </div>
+                                         <div class="relative mt-8 flex items-center justify-between text-sm text-amber-300">
+                                            <span>Open document</span>
+                                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                        </div>
+                                    </a>
+                                </div>
+                            </section>
+
+                            <!-- Warranty Tab -->
+                            <section class="tab-content" id="warranty-tab" role="tabpanel" aria-labelledby="warranty-btn">
+                                <h3 class="text-2xl font-bold mb-6">Warranty Information</h3>
+                                <p class="text-slate-600 mb-4">UK Warranty Information &ndash; JL Audio&rsquo;s Home Audio Powered Subwoofer Systems</p>
+                                <p class="text-slate-600 mb-4">JL Audio Home Audio Powered Subwoofer Systems are warrantied against defects in materials and workmanship for Three (3) Years from purchase date. Audio Visual Technology Solutions (UK) Limited will, at its discretion, repair or replace any products that exhibit defects in materials and/or workmanship during the warranty period.</p>
+                                <p class="text-slate-600 mb-4">Please hold on to your sales receipt! All warranty service requires original sales receipt documentation. The warranty only applies to the original purchaser from an authorised retailer.</p>
+                                <p class="text-slate-600 mb-4">Note: Products purchased from unauthorised dealers are not covered under warranty. Please see our list of authorised UK dealers.</p>
+                                <p class="text-slate-600 mb-4">Warranty Limitations</p>
+                                <p class="text-slate-600 mb-4">The following is not covered under Audio Visual Technology Solutions (UK) Limited&rsquo;s warranty program:</p>
+                                <ul class="list-disc list-inside space-y-2 text-slate-600 mb-4">
+                                    <li>Product with defaced, altered or removed serial numbers (no valid, legible serial number = no warranty).</li>
+                                    <li>Product owned by anyone other than the original purchaser from an authorised dealer. (The warranty is not transferable and will not apply to products purchased from unauthorised dealers.)</li>
+                                    <li>Product that has been physically abused (run over by a car or beat with a hammer, for example).</li>
+                                    <li>Product that has not been installed according to the instructions in the owner's manual.</li>
+                                    <li>Product in which repair and/or modification has been attempted by unauthorised parties.</li>
+                                    <li>Product damaged cosmetically due to improper handling or normal wear and tear.</li>
+                                    <li>Product damaged in an accident, due to criminal activity (attempted theft, vandalism, etc.) or by 'acts of God' (flooding, lightning, etc.)</li>
+                                    <li>Custom finishes or other cosmetic treatments applied to products. (Audio Visual Technology Solutions (UK) Limited will not be responsible for restoring or maintaining any custom finishes).</li>
+                                    <li>Installation and shipping costs associated with removing, re-installing or shipping the product to Audio Visual Technology Solutions (UK) Limited for warranty service.</li>
+                                    <li>Audio Visual Technology Solutions (UK) Limited is not responsible for any JL Audio home powered subwoofer products that have been purchased from overseas. Customers must contact there overseas dealer direct for any warranty claims or repairs.</li>
+                                </ul>
+                                <p class="text-slate-600 mb-4">If you need Service on your JL Audio Product:</p>
+                                <p class="text-slate-600 mb-4">All warranty returns should be sent to Audio Visual Technology Solutions (UK) Limited freight prepaid through an authorised UK dealer and must be accompanied by proof of purchase (a copy of the original sales receipt). Direct returns from consumers or non-authorised dealers will be refused unless specifically authorised by Audio Visual Technology Solutions (UK) Limited with a valid return authorisation number. Warranty expiration on products returned without proof of purchase will be determined from the manufacturing date code. Coverage may be invalidated as this date is previous to purchase date. Return only defective components. Non-defective items received will be returned freight-collect at the expense of the customer. Customer is responsible for shipping charges and insurance in sending the product to Audio Visual Technology Solutions (UK) Limited. Freight damage on returns is not covered under warranty. Always include proof of purchase (sales receipt).</p>
+                                <p class="text-slate-600 mb-4">Note: Products that require inspection and repair should be packed carefully, preferably in the original packaging material. Audio Visual Technology Solutions (UK) Limited may charge the customer under its discretion for supplying new packaging material if deemed that the packaging material supplied by the customer is not fit for shipping of the products after remedial work is complete.</p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="bg-slate-50 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold mb-12">Related Products</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <a href="product-detail.html?brand=jl-audio&product=CR-1" class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
+                        <div class="h-48 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2m0-14c0-1.105 1.343-2 3-2s3 .895 3 2m0 14c0 1.105 1.343 2 3 2s3-.895 3-2m0-14c0-1.105-1.343-2-3-2s-3 .895-3 2"></path></svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">CR-1</h3>
+                            <p class="text-sm text-slate-600">JL Audio Subwoofer</p>
+                        </div>
+                    </a>
+                    <a href="product-detail.html?brand=emm-labs&product=MA1 DAC" class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
+                        <div class="h-48 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2m0-14c0-1.105 1.343-2 3-2s3 .895 3 2m0 14c0 1.105 1.343 2 3 2s3-.895 3-2m0-14c0-1.105-1.343-2-3-2s-3 .895-3 2"></path></svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">MA1 DAC</h3>
+                            <p class="text-sm text-slate-600">Meitner DAC</p>
+                        </div>
+                    </a>
+                    <a href="product-detail.html?brand=ati&product=Reference Amp" class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
+                        <div class="h-48 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2m0-14c0-1.105 1.343-2 3-2s3 .895 3 2m0 14c0 1.105 1.343 2 3 2s3-.895 3-2m0-14c0-1.105-1.343-2-3-2s-3 .895-3 2"></path></svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">Reference Amp</h3>
+                            <p class="text-sm text-slate-600">ATI Amplifier</p>
+                        </div>
+                    </a>
+                    <a href="product-detail.html?brand=rbh&product=In-Wall Speaker" class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
+                        <div class="h-48 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2m0-14c0-1.105 1.343-2 3-2s3 .895 3 2m0 14c0 1.105 1.343 2 3 2s3-.895 3-2m0-14c0-1.105-1.343-2-3-2s-3 .895-3 2"></path></svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-2">In-Wall Speaker</h3>
+                            <p class="text-sm text-slate-600">RBH Sound</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-amber-500 mb-4">About</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Our Team</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-amber-500 mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-slate-400 hover:text-white transition">All Products</a></li>
+                        <li><a href="products.html" class="text-slate-400 hover:text-white transition">Brands</a></li>
+                        <li><a href="technology.html" class="text-slate-400 hover:text-white transition">Technology</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-amber-500 mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="reviews.html" class="text-slate-400 hover:text-white transition">Reviews</a></li>
+                        <li><a href="videos.html" class="text-slate-400 hover:text-white transition">Videos</a></li>
+                        <li><a href="dealers.html" class="text-slate-400 hover:text-white transition">Dealers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-amber-500 mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition">Get in Touch</a></li>
+                        <li><span class="text-slate-400">Phone: +44 (0) 1234 567890</span></li>
+                        <li><span class="text-slate-400">Email: info@avtech.co.uk</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-slate-400 mb-4 md:mb-0">&copy; 2026 AV Tech Solutions. All rights reserved.</p>
+                    <ul class="flex gap-6">
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script src="scripts.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

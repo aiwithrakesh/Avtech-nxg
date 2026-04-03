@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read expert reviews and industry awards for AV Tech Solutions audio products.">
+    <meta name="keywords" content="audio reviews, product reviews, audio awards, expert reviews">
+    <meta property="og:title" content="Reviews - AV Tech Solutions">
+    <meta property="og:description" content="Industry recognition and expert reviews for premium audio products.">
+    
+    <title>Reviews - AV Tech Solutions</title>
+    
+    
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body class="bg-white text-slate-900 reviews-page">
+   <!-- Header Navigation -->
+    <header class="w-full">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" role="navigation" aria-label="Main Navigation">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="av_tech_logo.png" alt="AV Technology Solutions Logo" class="w-15 h-12 object-cover rounded-lg">
+                <span class="text-white font-black logo-text">AV Technology Solutions (U.K) Limited</span>
+            </a>
+        </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-white font-medium hover:text-amber-500 transition pb-2" aria-current="page">Home</a>
+                    
+                    <div class="relative group">
+                        <button class="nav-link text-white font-medium hover:text-amber-500 transition pb-2 flex items-center gap-1" aria-haspopup="true" aria-expanded="false" id="productsBtn">
+                            Products
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        </button>
+                        <div class="mega-menu" id="productsMenu">
+                            <div class="grid grid-cols-3 gap-6 p-6 max-w-7xl">
+                                <!-- Column 1: Brands -->
+                                <div>
+                                    <h3 class="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">Brands</h3>
+                                    <ul id="brandList" class="space-y-1 overflow-y-auto max-h-96">
+                                        <!-- Populated by JS -->
+                                    </ul>
+                                </div>
+                                <!-- Column 2: Categories -->
+                                <div>
+                                    <h3 class="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">Categories</h3>
+                                    <ul id="categoryList" class="space-y-1 overflow-y-auto max-h-96">
+                                        <!-- Populated by JS -->
+                                    </ul>
+                                </div>
+                                <!-- Column 3: Products -->
+                                <div>
+                                    <h3 class="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">Products</h3>
+                                    <ul id="productList" class="space-y-1 overflow-y-auto max-h-96">
+                                        <!-- Populated by JS -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <a href="reviews.html" class="nav-link active text-white font-medium hover:text-amber-500 transition pb-2">Reviews</a>
+                    <a href="videos.html" class="nav-link text-white font-medium hover:text-amber-500 transition pb-2">Videos</a>
+                    <a href="dealers.html" class="nav-link text-white font-medium hover:text-amber-500 transition pb-2">Dealers</a>
+                    <a href="contact.html" class="nav-link text-white font-medium hover:text-amber-500 transition pb-2">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-white p-2 hover:bg-slate-700 rounded" aria-label="Toggle menu" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="p-4 flex justify-between items-center sticky top-0 bg-slate-900 text-white">
+            <span>Menu</span>
+            <button aria-label="Close menu" id="closeMobileMenuBtn" class="p-2 hover:bg-slate-700 rounded">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="p-4" role="navigation" aria-label="Mobile Navigation">
+            <a href="index.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Home</a>
+            
+            <!-- Products Accordion -->
+            <div class="border-b">
+                <button class="accordion-trigger text-slate-900" data-section="products">
+                    Products
+                    <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+                <div class="accordion-content" id="products-accordion">
+                    <div id="mobileProductMenu" class="p-2">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <a href="reviews.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Reviews</a>
+            <a href="videos.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Videos</a>
+            <a href="dealers.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Dealers</a>
+            <a href="contact.html" class="block py-3 px-4 font-medium text-slate-900 hover:bg-slate-100 rounded">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="hero-section relative overflow-hidden py-20 md:py-32 px-4 sm:px-6 lg:px-8">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, rgba(245, 158, 11, 0.3) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(245, 158, 11, 0.3) 0%, transparent 50%);"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto hero-content text-center relative z-10">
+                <nav aria-label="Breadcrumb" class="mb-8">
+                    <ol class="flex gap-2 text-sm justify-center">
+                        <li><a href="index.html" class="text-slate-300 hover:text-white transition">Home</a></li>
+                        <li><span class="text-slate-300">/</span></li>
+                        <li class="text-white font-medium" aria-current="page">Reviews</li>
+                    </ol>
+                </nav>
+                
+                <div class="mb-8">
+                    <span class="inline-block px-4 py-2 bg-amber-500/20 text-amber-300 rounded-full text-sm font-medium mb-4">Industry Recognition</span>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-transparent">
+                        Reviews
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-200 mb-8 max-w-4xl mx-auto leading-relaxed">
+                        Discover what leading audio publications and experts say about our premium products. 
+                        Industry recognition that validates our commitment to audio excellence.
+                    </p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-black text-amber-400 mb-2">20+</div>
+                        <div class="text-slate-300 text-sm md:text-base">Expert Reviews</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-black text-amber-400 mb-2">25+</div>
+                        <div class="text-slate-300 text-sm md:text-base">Industry Awards</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-black text-amber-400 mb-2">100%</div>
+                        <div class="text-slate-300 text-sm md:text-base">Positive Feedback</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-black text-amber-400 mb-2">15+</div>
+                        <div class="text-slate-300 text-sm md:text-base">Years Recognition</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industry Awards Section -->
+        <section class="reviews-showcase py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-slate-50 to-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Expert Reviews & Industry Recognition</h2>
+                    <p class="text-slate-600 max-w-3xl mx-auto">Discover what leading audio publications and experts have to say about our premium JL Audio subwoofers and electronics. These reviews highlight the exceptional performance, engineering excellence, and sonic quality that make our products the benchmark in high-end audio.</p>
+                </div>
+                
+                <!-- CR-1 Active Subwoofer Crossover -->
+                <div class="mb-20">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-2 bg-amber-100 text-amber-800 text-sm font-semibold rounded-full mb-4">CR-1® Active Subwoofer Crossover</span>
+                        <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Industry-Leading Crossover Technology</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">S</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl text-slate-900">Stereophile</h4>
+                                        <p class="text-slate-600">Larry Greenhill • Nov 2, 2016</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-400">
+                                    Nov 2, 2016
+                                </div>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed italic mb-6">"JL Audio's CR-1 electronics crossover was a total surprise—I wondered where it had been all my life. It's beautifully made, sonically transparent, performs a critical role in the optimal setup of subwoofers, and has ergonomic bypass and mute functions that let you immediately hear the sonic improvements of good bass management. JL Audio's Fathom f212v2 subwoofer and CR-1 crossover are strongly recommended."</p>
+                        </div>
+
+                        <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">T</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl text-slate-900">The Absolute Sound</h4>
+                                        <p class="text-slate-600">Jonathan Valin • Aug 25, 2015</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-400">
+                                    Aug 25, 2015
+                                </div>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed italic mb-6">"...the Gothams and the CR-1 are tickets to a full-range bliss you've never before experienced, because, in my own experience, it's never before been available at this level of unalloyed satisfaction. Both the Gotham subs and JL's CR-1 crossover, obviously, get my highest, most unqualified, most enthusiastic recommendation. I just wish all of you could hear them!"</p>
+                            
+                        </div>
+
+                        <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">S</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl text-slate-900">SoundStage! Ultra</h4>
+                                        <p class="text-slate-600">Jeff Fritz • Jan 01, 2015</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-400">
+                                    Jan 01, 2015
+                                </div>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed italic mb-6">"Those who want to perfectly blend a powered subwoofer(s) with topflight main speakers in a high-end stereo system should consider as mandatory JL Audio's CR-1 Active Subwoofer Crossover. It's flexible, transparent, and intuitive to use. So grab an audio buddy, spend a few hours with a CR-1 to dial in your system to the nth degree, and you'll surely be rewarded."</p>
+                            
+                        </div>
+
+                        <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">C</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl text-slate-900">CANADA HiFi</h4>
+                                        <p class="text-slate-600">Jun 10, 2013</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-400">
+                                    Jun 10, 2013
+                                </div>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed italic mb-6">"I have reviewed many fine subwoofers and although I enjoyed my time with many of them, I felt no tinge of regret when returning them. The f112s are different. They are not going anywhere as they have now become part of my reference system... Kudos JL Audio, your f112 combined with your CR-1 gives music lovers a means to integrate superior subs with main speakers in a way that delivers deep, visceral, accurate and distinctively tuneful bass performance."</p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dominion d108 -->
+                <div class="mb-20">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-2 bg-amber-100 text-amber-800 text-sm font-semibold rounded-full mb-4">Dominion® d108</span>
+                        <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Compact Powerhouse Performance</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">H</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl text-slate-900">Home Cinema Choice</h4>
+                                        <p class="text-slate-600">Adam Rayner • June, 2016</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-400">
+                                    June, 2016
+                                </div>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed italic mb-6">"So in addition to its pretty looks and capable controls, the Dominion d108 sub is astonishingly good in output. Played unseen, I might have thought it was subwoofer with a 12in driver and a solid amp."</p>
+                            
+                        </div>
+
+                        <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">S</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl text-slate-900">SoundStage! Access</h4>
+                                        <p class="text-slate-600">Hans Wetzel • Apr 01, 2016</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-400">
+                                    Apr 01, 2016
+                                </div>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed italic mb-6">"The Dominion d108 could be part of the ultimate 2.1-channel system for the common audiophile. Given the level of performance it was able to muster in my system, and the fact that it's the smallest, least expensive subwoofer JL Audio makes, I worry for the competition."</p>
+                            
+                        </div>
+
+                        <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">A</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl text-slate-900">Audio Video Revolution</h4>
+                                        <p class="text-slate-600">Andre Marc • Mar 30, 2016</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-400">
+                                    Mar 30, 2016
+                                </div>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed italic mb-6">"If you are looking for the last missing piece for your system -- the sense of lifelike weight and scale -- and don't want to break the bank, I can't possibly recommend the JL Audio Dominion subwoofer series highly enough."</p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dominion d110 -->
+                <div class="mb-20">
+                    <div class="text-center mb-12">
+                        <span class="inline-block px-4 py-2 bg-amber-100 text-amber-800 text-sm font-semibold rounded-full mb-4">Dominion® d110</span>
+                        <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Performance That Defies Size</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        
+                        <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">T</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl text-slate-900">TONEAudio Magazine</h4>
+                                        <p class="text-slate-600">Rob Johnson</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-400">
+                                    June, 2016
+                                </div>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed italic mb-6">"A wolf in sheep's clothing" "Dominions do a marvelous job, even when mated with main speakers several times their price." Reference Tone Audio Magazine Issue No. 77 June 2016 pages 186 to 193.</p>
+                            
+                        </div>
+
+                        <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
+                                        <span class="text-white font-bold text-lg">S</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl text-slate-900">SoundStage! Access</h4>
+                                        <p class="text-slate-600">Howard Kneller</p>
+                                    </div>
+                                </div>
+                                <div class="flex text-amber-400">
+                                    April, 2016
+                                </div>
+                            </div>
+                            <p class="text-slate-700 leading-relaxed italic mb-6">"It stands among the best of a large class of highly able competitors, and might even be the very best of that small bunch."</p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Sub e110 -->
+                <!-- <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-600">E-Sub® e110</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">The Absolute Sound</h4>
+                                <span class="text-sm text-slate-600">Jun 02, 2014</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Jonathan Valin</p>
+                            <p class="text-slate-700 italic">"The E-Sub e110 is a no-brainer highest recommendation if ever I heard one. And remember this is coming from someone who hates subwoofers (or used to)."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">CNET</h4>
+                                <span class="text-sm text-slate-600">May 03, 2014</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Steve Guttenberg</p>
+                            <p class="text-slate-700 italic">"if I had to sum up the e110's sound in one word it would be precise. Bass notes start and stop on a dime, drum beats sound like sticks hitting a drum head." "...I have to say JL Audio's "baby" e110 sounded like a heavyweight to me." "...the e110's bass clarity and definition put it in a different class."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Sound & Vision</h4>
+                                <span class="text-sm text-slate-600">Feb 21, 2014</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Daniel Kumin</p>
+                            <p class="text-slate-700 italic">"The e110 joined my system for nearly a full month, and the longer I listened, the more impressed I became. Musical deep bass, whether from Richard Strauss' Also Sprach Zarathustra or Saint-Saëns' Organ Symphony, was convincingly complete, with even the lowest fundamental tones geologically solid and fully accounted for." "This one's a keeper. 'Merican-made, too".</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">GoodSound SoundStage</h4>
+                                <span class="text-sm text-slate-600">Dec 01, 2013</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Kevin East</p>
+                            <p class="text-slate-700 italic">"JL Audio's E-Sub e110 is a terrific component. If $1500 is your price point, then you're missing something special if you don't give it a listen. Recommended."</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- E-Sub e112 -->
+                <!-- <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-600">E-Sub® e112</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">The Absolute Sound</h4>
+                                <span class="text-sm text-slate-600">Apr 20, 2015</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Robert Harley</p>
+                            <p class="text-slate-700 italic">"This subwoofer takes excellent performance up several notches, reproducing the dynamic, textural, and tonal nuances in acoustic or electric bass playing. Despite 'light on its feet' agility, the e112 also delivers tremendous bottom-end authority. It's this combination of finesse and impact that makes the e112 such a stand-out in a crowded field-and at an eminently affordable price."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Home Theater Shack</h4>
+                                <span class="text-sm text-slate-600">Mar 03, 2014</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Jim Wilson</p>
+                            <p class="text-slate-700 italic">"Being a fiend for accuracy and precision meant the E112 and I got along very well. It was near impossible to make this thing sound bad. To be honest, I'm not sure if I ever did; as you crank up the volume it just gets louder and louder, yet it never loses composure." JL Audio is renown for sound quality and the E112 is no exception, clearly adhering to the company ethos. Regardless of what I played, how high or low the volume, how challenging and complex the passage, dynamics and transient response were superb. The output was always nimble, never once being confused or overwhelmed by what I had chosen. I don't lightly bestow the term "musical" on any subwoofer, but the E112 certainly fits my description of the word.</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">SoundStage! Network</h4>
+                                <span class="text-sm text-slate-600">2013</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Review</p>
+                            <p class="text-slate-700 italic">"Exceptional Value: Subwoofers JL Audio E-Sub e112 subwoofer: Whenever I read do-it-yourselfers' proclamations that they can build subwoofers of their own design that better, at lower cost, the models from JL Audio, I laugh. Those folks fail to recognize the value of such things as warranties and good resale values. But even setting aside these practical considerations, the E-Sub e112 ($1900-$2100, depending on finish) sounds superb, easily besting in overall sound quality what I've heard from 90% of the subwoofers out there. Despite its entry-level placement in JLA's line of home models, this is one serious sub."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">SoundStage! Network</h4>
+                                <span class="text-sm text-slate-600">Oct 01, 2013</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Jeff Fritz</p>
+                            <p class="text-slate-700 italic">"At the end of the day, the E-Sub e112 is an output beast with fidelity to match. That's worth the asking price in most any system. In fact, its performance makes the e112 the no-brainer buy of the year."</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Fathom f110 -->
+                <!-- <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-600">Fathom® f110</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Home Cinema Choice</h4>
+                                <span class="text-sm text-slate-600">Feb, 2013</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Adam Rayner</p>
+                            <p class="text-slate-700 italic">"The Fathom F110 is like a 10in active sub on steroids. The cone goes in and out more. It goes faster. it stops more quickly and with its powerful amplifier can switch from a mere loud rumble to a massive wavefront of bass in the blink of any eye."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Home Theater Review</h4>
+                                <span class="text-sm text-slate-600">2011</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Review</p>
+                            <p class="text-slate-700 italic">"Chosen by editorial staff for coveted 2011 Best of 2011 Award"</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Home Theater Review</h4>
+                                <span class="text-sm text-slate-600">June 24, 2011</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Andrew Robinson</p>
+                            <p class="text-slate-700 italic">"While some will probably feel spending $2,000 on a subwoofer is nothing short of insanity, others will no doubt see it as a bargain. I'm inclined to side with the latter for it's the subwoofer I would choose for any reference two-channel or home theater system regardless of price. Recommended? Hell yes."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">GoodSound Soundstage</h4>
+                                <span class="text-sm text-slate-600">May 01, 2010</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Vade Forrester</p>
+                            <p class="text-slate-700 italic">"It's not the cheapest 10" subwoofer on the market, but I challenge you to find a better one at its price -- or at any price. I haven't."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Secrets of Home Theater and High Fidelity</h4>
+                                <span class="text-sm text-slate-600">Sep 17, 2009</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Michael Galvin</p>
+                            <p class="text-slate-700 italic">"I understand it may be difficult to understand this fully, so I will just say that not only had I never heard subwoofers enrich the stereo experience like this, I didn't even know it could be done. My understanding was that, at most, a subwoofer might add a layer of bottom end to the presentation of the mains. I also believed that this was very difficult to make seamless. In years past, I sat for several of such demonstrations and was unimpressed as it was never seamless and it never sounded musical to me. I'm not talking ancient history either, this was as recently as a few years ago. I don't know if JL Audio did this on their own, but folks, I'm here to announce that the world has changed."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Tone Audio</h4>
+                                <span class="text-sm text-slate-600">2009</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Jeff Dorgay</p>
+                            <p class="text-slate-700 italic">"The F110's exceeded my expectations by a considerable margin and are not only the most musical subwoofers I've had the privilege of using, but by far the easiest to set up."</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Fathom f112 -->
+                <!-- <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-600">Fathom® f112</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Canada Hifi</h4>
+                                <span class="text-sm text-slate-600">June 10, 2013</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Malcolm J. Gomes</p>
+                            <p class="text-slate-700 italic">"I have reviewed many fine subwoofers and although I enjoyed my time with many of them, I felt no tinge of regret when returning them. The f112s are different. They are not going anywhere as they have now become part of my reference system, until something better (which I can afford) comes along, which I suspect will not be for quite some time. Kudos JL Audio, your f112 combined with your CR-1 gives music lovers a means to integrate superior subs with main speakers in a way that delivers deep, visceral, accurate and distinctively tuneful bass performance in a manner that will give anyone with a heartbeat, many goose bump inducing musical moments."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">The Absolute Sound</h4>
+                                <span class="text-sm text-slate-600">2008, 2009 & 2012</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Review</p>
+                            <p class="text-slate-700 italic">"Editors' Choice Award Winner"</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">CEPro</h4>
+                                <span class="text-sm text-slate-600">May 23, 2011</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Robert Archer</p>
+                            <p class="text-slate-700 italic">"I'm not going to mince words about the Fathom f112: It may be the best sub on the market."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Home Theater Sound</h4>
+                                <span class="text-sm text-slate-600">Dec, 2009</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Aron Garrecht</p>
+                            <p class="text-slate-700 italic">"the single Fathom f112 I have has become my reference subwoofer. If you're in the market for a wonderfully versatile subwoofer that offers deep, controlled, powerful bass, looks classy, and is impeccably built, JL Audio's Fathom f112 deserves to be on your short list."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Home Theater Review</h4>
+                                <span class="text-sm text-slate-600">Oct 20, 2008</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Jerry Del Colliano</p>
+                            <p class="text-slate-700 italic">"This subwoofer is a total monster. Powerful and able to move some serious air, the JL Audio Fathom f112 at its price is a killer. Yes, it's an expensive woofer, but it also is fast, deep and has the spank to get you as low (and as loud) as you ever might want to go for your music and movies."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">The Perfect Vision</h4>
+                                <span class="text-sm text-slate-600">Aug 21, 2008</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Chris Martens</p>
+                            <p class="text-slate-700 italic">"The bottom line is that JL Audio's Fathom f112 offers benchmark performance in terms of bass extension, power, transient speed, and clarity. It is beautifully made, easy to use, and gives surefire results on music and movies."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Secrets of Home Theater and High Fidelity</h4>
+                                <span class="text-sm text-slate-600">Apr 13, 2008</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Colin Miller</p>
+                            <p class="text-slate-700 italic">"How can I summarise best? The JL Audio Fathom f112 subwoofers are awesome, and severely well-rounded. They are my favourites to date, period."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">SoundStageAV</h4>
+                                <span class="text-sm text-slate-600">July 01, 2007</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Wes Marshall</p>
+                            <p class="text-slate-700 italic">"In fact, the Fathom JL f112 is the best subwoofer I've ever used. It exudes quality, from its elegant cabinetwork to the transparent way it handles whatever dynamic sounds you throw at it without any sense of strain. My long-term reference sub, the Sunfire Signature, now sounds anemic. I'm now spoiled for any other sub."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Audioholics</h4>
+                                <span class="text-sm text-slate-600">Mar 24, 2007</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">David</p>
+                            <p class="text-slate-700 italic">"I am pleased to say, the f112 will be making a home in my reference system. It makes for a fine benchmark against which other high performance subwoofers will be judged."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Sound+Vision Magazine</h4>
+                                <span class="text-sm text-slate-600">Nov 3, 2006</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Daniel Kumin</p>
+                            <p class="text-slate-700 italic">"This is a hell of a good subwoofer. If you've got the scratch to buy it and the abs to unpack and install it, you won't be sorry."</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Fathom f113 -->
+                <!-- <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-600">Fathom® f113</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Stereophile</h4>
+                                <span class="text-sm text-slate-600">Dec 30, 2015</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Kalman Rubinson</p>
+                            <p class="text-slate-700 italic">"JL Audio's Fathom f113v2 is everything good from the Fathom f113 and more. DARO is a huge and needed improvement, and the backward-compatibility with the v1 is appreciated. In 2006, I hadn't thought I needed a subwoofer—and certainly not two. Now, it's hard to imagine listening without at least one Fathom f113v2. This is one accessory that does realize its potential to improve my system."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">The Absolute Sound</h4>
+                                <span class="text-sm text-slate-600">2008, 2009 & 2012</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Review</p>
+                            <p class="text-slate-700 italic">"Editors' Choice Award Winner"</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">The Perfect Vision</h4>
+                                <span class="text-sm text-slate-600">Aug 21, 2008</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Chris Martens</p>
+                            <p class="text-slate-700 italic">"The bottom line is that JL Audio's Fathom f113 offers benchmark performance in terms of bass extension, power, transient speed, and clarity. It is beautifully made, easy to use, and gives surefire results on music and movies."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Secrets of Home Theater and High Fidelity</h4>
+                                <span class="text-sm text-slate-600">Jul 09, 2008</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">John E. Johnson Jr.</p>
+                            <p class="text-slate-700 italic">"With no reservation, and by every standard, this is a world class subwoofer. It has massive output, low distortion, and all from a mid-sized enclosure."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Audio Video Revolution</h4>
+                                <span class="text-sm text-slate-600">Sep 01, 2007</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Mike Levy</p>
+                            <p class="text-slate-700 italic">"The JL Audio Fathom 113 dollar for dollar is the best subwoofer I have heard on the market. If you are in the market for any of the top-of-the-line audiophile products, you owe it to yourself to go out and take a test drive with the Fathom 113. It has the power to knock your socks off. It has the finesse to make your best speakers sound even better."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Stereophile</h4>
+                                <span class="text-sm text-slate-600">Sep, 2007</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Larry Greenhill</p>
+                            <p class="text-slate-700 italic">"Two JL Audio Fathom f113 subwoofers produced dramatic changes in my audio system. Never before had new audio gear reshaped the depth and width of the soundstage, doubled the dynamic range, and increased the transparency, all at the same time."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Home Theater</h4>
+                                <span class="text-sm text-slate-600">Mar 21, 2007</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Mark Fleischmann</p>
+                            <p class="text-slate-700 italic">"Action movies lost that one-note quality that so often leads to irritation and boredom. The bottom end of pretty much any kind of music took on more definition and shape, even with the lowest string of the lowest instrument. Suddenly relieved of bad-sub stress, I became less stressed. I felt a renewed appreciation for artists and engineers because I could hear more of what they'd intended me to hear. Over time, my expectations changed. I now have a broader frame of reference for what a sub can accomplish. This will not make subsequent reviewing any easier. Couldn't I just stay here forever?"</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">The Absolute Sound</h4>
+                                <span class="text-sm text-slate-600">Mar, 2007</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Robert Harley</p>
+                            <p class="text-slate-700 italic">"Although capable of great delicacy and nuance, the Fathom had a bottom-end solidity, power and iron-fisted control in the lowermost octave that was jaw-dropping."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Home Theater Sound</h4>
+                                <span class="text-sm text-slate-600">Oct, 2006</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Randall Smith</p>
+                            <p class="text-slate-700 italic">"The JL Audio Fathom f113 is the single best A/V product I have experienced. The improvement it made to my home-theater system was stunning. I've never heard better."</p>
+                        </div>
+                        <div class="review-card group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-200">
+                            <div class="flex items-center justify-between mb-3">
+                                <h4 class="font-bold text-lg">Home Theater</h4>
+                                <span class="text-sm text-slate-600">2006</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-2">Mark Fleischmann</p>
+                            <p class="text-slate-700 italic">"Best Sound of Show – CEDIA 2006 Show Report"</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Fathom f212 -->
+                <!-- <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-600">Fathom® f212</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">Home Cinema Choice</h4>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Dec, 2012</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Adam Rayner</p>
+                            <p class="text-slate-700 leading-relaxed italic">"To sum up, the F212 is a reference-grade subwoofer with velvet-covered hammers in its face. I struggle to think of a better-sounding product. JL Audio is finally here. Be afraid, be very afraid."</p>
+                        </div>
+
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">Home Theater</h4>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Mar 13, 2012</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Darryl Wilkinson</p>
+                            <p class="text-slate-700 leading-relaxed italic">"JL Audio's Fathom f212 is more than just one hell of a subwoofer—it's one hell of an experience."</p>
+                        </div>
+
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">Secrets of Home Theater and High Fidelity</h4>
+                                        <div class="flex items-center text-amber-500 text-sm">
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Nov 2, 2010</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">John E. Johnson Jr.</p>
+                            <p class="text-slate-700 leading-relaxed italic">"It is expensive, but notwithstanding, even just one of these subs will satisfy the most critical of home theater aficionados. The f212 is one of the finest subwoofers in the world."</p>
+                        </div>
+
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-700 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">Stereophile</h4>
+                                        <div class="flex items-center text-amber-500 text-sm">
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Apr 20, 2010</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Larry Greenhill</p>
+                            <p class="text-slate-700 leading-relaxed italic">"The Fathom f212 has raised the performance quality of my audio system, and my enjoyment of it, to much higher levels."</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Fathom f212v2 -->
+                <!-- <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-600">Fathom® f212v2</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-700 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">Stereophile</h4>
+                                        <div class="flex items-center text-amber-500 text-sm">
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Nov 2, 2016</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Larry Greenhill</p>
+                            <p class="text-slate-700 leading-relaxed italic">"The Fathom f212v2's bass resolution was revelatory. When I played Don Dorsey's 'Ascent,' performed by Erich Kunzel and the Cincinnati Pops on their Time Warp collection (CD, Telarc CD-80106), the JLAs' imaging let me better distinguish the positions of the synth beats that move from side to side. Dynamics ranged from soft murmurs to a thunderous rumble as the synths blended into the sustained 31.7Hz organ note that begins Strauss's Also sprach Zarathustra on that same disc."</p>
+                        </div>
+
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">Home Cinema Choice</h4>
+                                        <div class="flex items-center text-amber-500 text-sm">
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">July, 2016</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Adam Rayner</p>
+                            <p class="text-slate-700 leading-relaxed italic">"Perhaps the real sign of this sub's class was experienced in the Star Wars scene with Snoke. All that DSP cleverness bears fruit, with the taut accuracy of the abyssal lows making the space feel more cavernous than a cathedral. You can literally feel the size of the space the characters are in, in a way that defies simple description but gives acoustic agoraphobia. In short, this is a wonderful device fully deserving of its v2 label. It's suited to largescale home cinema, but also means you could have smaller speakers than floorstanders and still enjoy reference-grade audio. I loved it to bits, except for having to move it around"</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Gotham g213 -->
+                <!-- <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-amber-600">Gotham® g213</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">The Absolute Sound</h4>
+                                        <div class="flex items-center text-amber-500 text-sm">
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">2008, 2009 & 2012</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Review</p>
+                            <p class="text-slate-700 leading-relaxed italic">"Editors' Choice Award Winner"</p>
+                        </div>
+
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-teal-700 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">Tone Audio</h4>
+                                        <div class="flex items-center text-amber-500 text-sm">
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">2009</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Jeff Dorgay</p>
+                            <p class="text-slate-700 leading-relaxed italic">"Top of the Mountain" "The Gotham is a fantastic product that can transform whatever system in which it is placed, no matter how good. If you have the room and the extra power to support it, it is one of the rare pieces of high-end audio gear that will take you somewhere you have never been. Highly recommended."</p>
+                        </div>
+
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">Home Theater Review</h4>
+                                        <div class="flex items-center text-amber-500 text-sm">
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Oct 17, 2008</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Andrew Robinson</p>
+                            <p class="text-slate-700 leading-relaxed italic">"One of the fastest subwoofers I've ever encountered, regardless of price. There are many subs that cost way more than the Gotham that can't match its level of performance and output."</p>
+                        </div>
+
+                        <div class="review-card group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">Ultra Audio</h4>
+                                        <div class="flex items-center text-amber-500 text-sm">
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Apr 1, 2008</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Jeff Fritz</p>
+                            <p class="text-slate-700 leading-relaxed italic">"The Gotham g213 produces state-of-the-art bass that will improve the highest of high-end systems. I've heard no other subwoofer that can match it."</p>
+                        </div>
+
+                        <div class="group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-amber-300 transform hover:-translate-y-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-700 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M11 3a1 1 0 10-2 0v1a1 1 0 011 1v2.586l-.707.707a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 001.414-1.414L13 7.586V5a1 1 0 011-1V3zM4 9a2 2 0 012-2h8a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V9zm2 2v4h8v-4H6z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-slate-900">The Perfect Vision</h4>
+                                        <div class="flex items-center text-amber-500 text-sm">
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-full">Apr 1, 2008</span>
+                            </div>
+                            <p class="text-slate-600 text-sm mb-3 font-medium">Neil Gader</p>
+                            <p class="text-slate-700 leading-relaxed italic">"CEDIA 2004 Best Sound"</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>                                
+
+        <!-- Customer Reviews Section -->
+        <!-- <section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold mb-12 text-center">Customer Testimonials</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="review-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="star-rating text-lg mb-3">★★★★★</div>
+                        <h4 class="font-bold mb-2">Exceeded Expectations</h4>
+                        <p class="text-slate-600 mb-4">The clarity and detail are absolutely remarkable. Every note comes through with precision. I couldn't be happier with this purchase.</p>
+                        <p class="text-sm text-slate-700 font-medium">— Michael R., London</p>
+                    </div>
+
+                    <div class="review-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="star-rating text-lg mb-3">★★★★★</div>
+                        <h4 class="font-bold mb-2">Professional Grade Quality</h4>
+                        <p class="text-slate-600 mb-4">The build quality is extraordinary. It's clear this was designed and manufactured with meticulous attention to detail.</p>
+                        <p class="text-sm text-slate-700 font-medium">— Sarah K., Manchester</p>
+                    </div>
+
+                    <div class="review-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="star-rating text-lg mb-3">★★★★★</div>
+                        <h4 class="font-bold mb-2">Best Investment Ever</h4>
+                        <p class="text-slate-600 mb-4">Worth every penny. The sound quality is in a different league. I've tried other products, but this is truly exceptional.</p>
+                        <p class="text-sm text-slate-700 font-medium">— James T., Bristol</p>
+                    </div>
+
+                    <div class="review-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="star-rating text-lg mb-3">★★★★★</div>
+                        <h4 class="font-bold mb-2">Exceptional Support</h4>
+                        <p class="text-slate-600 mb-4">Not only is the product fantastic, but the support team was incredibly helpful and professional. Highly recommended!</p>
+                        <p class="text-sm text-slate-700 font-medium">— David W., Edinburgh</p>
+                    </div>
+
+                    <div class="review-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="star-rating text-lg mb-3">★★★★★</div>
+                        <h4 class="font-bold mb-2">Transformative Experience</h4>
+                        <p class="text-slate-600 mb-4">This product has completely transformed my audio experience. I'm rediscovering my favorite music like never before.</p>
+                        <p class="text-sm text-slate-700 font-medium">— Emma H., Oxford</p>
+                    </div>
+
+                    <div class="review-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="star-rating text-lg mb-3">★★★★★</div>
+                        <h4 class="font-bold mb-2">Premium Experience</h4>
+                        <p class="text-slate-600 mb-4">From unboxing to setup, everything was premium quality. This is what audio excellence looks like.</p>
+                        <p class="text-sm text-slate-700 font-medium">— Robert P., York</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Enhanced CTA Section -->
+        <section class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-amber-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto text-center text-white">
+                <div class="mb-6">
+                    <span class="inline-flex items-center px-4 py-2 rounded-full bg-amber-500/20 text-amber-400 text-sm font-medium border border-amber-500/30">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Award-Winning Audio Excellence
+                    </span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent">
+                    Discover Award-Winning Audio
+                </h2>
+
+                <p class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                    Experience the difference quality makes. Join thousands of satisfied customers who trust AV Tech Solutions for their premium audio needs.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                    <a href="products.html" class="group px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 font-bold rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        <span class="flex items-center">
+                            Shop Premium Audio
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <a href="contact.html" class="px-8 py-4 border-2 border-amber-500 text-amber-400 font-semibold rounded-lg hover:bg-amber-500 hover:text-slate-900 transition-all duration-300">
+                        Get Expert Consultation
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <!-- <div class="flex flex-wrap justify-center items-center gap-6 text-sm text-slate-400">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Free Shipping
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        30-Day Returns
+                    </div>
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Expert Support
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-amber-500 mb-4">About</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Our Team</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-amber-500 mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-slate-400 hover:text-white transition">All Products</a></li>
+                        <li><a href="products.html" class="text-slate-400 hover:text-white transition">Brands</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-amber-500 mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="reviews.html" class="text-slate-400 hover:text-white transition">Reviews</a></li>
+                        <li><a href="videos.html" class="text-slate-400 hover:text-white transition">Videos</a></li>
+                        <li><a href="dealers.html" class="text-slate-400 hover:text-white transition">Dealers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-amber-500 mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition">Get in Touch</a></li>
+                        <li><span class="text-slate-400">Phone: +44 (0) 1234 567890</span></li>
+                        <li><span class="text-slate-400">Email: info@avtech.co.uk</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-slate-400 mb-4 md:mb-0">&copy; 2026 AV Tech Solutions. All rights reserved.</p>
+                    <ul class="flex gap-6">
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+        <script src="scripts.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
