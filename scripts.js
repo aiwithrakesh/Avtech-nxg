@@ -699,6 +699,168 @@ function initContactForm() {
     });
 }
 
+function initProductGallery() {
+    const gallery = safeQuery('.product-gallery');
+    if (!gallery) return;
+
+    const imageElement = safeQuery('#galleryCurrentImage');
+    const thumbsContainer = safeQuery('#galleryThumbs');
+    const counterElement = safeQuery('#galleryCounter');
+    const prevButton = safeQuery('#galleryPrevBtn');
+    const nextButton = safeQuery('#galleryNextBtn');
+
+    if (!imageElement || !thumbsContainer || !counterElement || !prevButton || !nextButton) {
+        return;
+    }
+
+    const basePath = (gallery.dataset.galleryPath || '').replace(/\\/g, '/').replace(/\/$/, '');
+    const total = Number.parseInt(gallery.dataset.galleryTotal || '0', 10);
+    const galleryName = gallery.dataset.galleryName || 'Product gallery';
+
+    if (!basePath || !Number.isFinite(total) || total < 1) {
+        return;
+    }
+
+    const images = Array.from({ length: total }, (_, index) => ({
+        src: `${basePath}/${index + 1}.jpg`,
+        alt: `${galleryName} gallery image ${index + 1}`
+    }));
+
+    let currentIndex = 0;
+    let autoplayTimer = null;
+    let touchStartX = 0;
+    let touchDeltaX = 0;
+
+    function updateGallery(index, animate = true) {
+        currentIndex = (index + images.length) % images.length;
+        const currentImage = images[currentIndex];
+
+        if (animate) {
+            imageElement.classList.add('is-transitioning');
+        }
+
+        window.setTimeout(() => {
+            imageElement.src = currentImage.src;
+            imageElement.alt = currentImage.alt;
+            counterElement.textContent = `${currentIndex + 1} / ${images.length}`;
+
+            thumbsContainer.querySelectorAll('.product-gallery-thumb').forEach((button, buttonIndex) => {
+                const isActive = buttonIndex === currentIndex;
+                button.classList.toggle('is-active', isActive);
+                button.setAttribute('aria-current', isActive ? 'true' : 'false');
+
+                if (isActive) {
+                    button.scrollIntoView({
+                        behavior: animate ? 'smooth' : 'auto',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+                }
+            });
+
+            imageElement.classList.remove('is-transitioning');
+        }, animate ? 120 : 0);
+    }
+
+    function moveGallery(step) {
+        updateGallery(currentIndex + step);
+    }
+
+    function startAutoplay() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || images.length < 2) {
+            return;
+        }
+
+        stopAutoplay();
+        autoplayTimer = window.setInterval(() => {
+            moveGallery(1);
+        }, 4500);
+    }
+
+    function stopAutoplay() {
+        if (autoplayTimer) {
+            window.clearInterval(autoplayTimer);
+            autoplayTimer = null;
+        }
+    }
+
+    thumbsContainer.innerHTML = images.map((image, index) => `
+        <button
+            class="product-gallery-thumb${index === 0 ? ' is-active' : ''}"
+            type="button"
+            aria-label="Show product image ${index + 1}"
+            aria-current="${index === 0 ? 'true' : 'false'}"
+            data-index="${index}">
+            <img src="${image.src}" alt="${image.alt}" loading="lazy">
+        </button>
+    `).join('');
+
+    thumbsContainer.addEventListener('click', (event) => {
+        const thumbButton = event.target.closest('.product-gallery-thumb');
+        if (!thumbButton) return;
+
+        const nextIndex = Number.parseInt(thumbButton.dataset.index || '0', 10);
+        updateGallery(nextIndex);
+        startAutoplay();
+    });
+
+    prevButton.addEventListener('click', () => {
+        moveGallery(-1);
+        startAutoplay();
+    });
+
+    nextButton.addEventListener('click', () => {
+        moveGallery(1);
+        startAutoplay();
+    });
+
+    gallery.addEventListener('mouseenter', stopAutoplay);
+    gallery.addEventListener('mouseleave', startAutoplay);
+    gallery.addEventListener('focusin', stopAutoplay);
+    gallery.addEventListener('focusout', () => {
+        if (!gallery.contains(document.activeElement)) {
+            startAutoplay();
+        }
+    });
+
+    gallery.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            moveGallery(-1);
+            startAutoplay();
+        }
+
+        if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            moveGallery(1);
+            startAutoplay();
+        }
+    });
+
+    gallery.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0]?.clientX || 0;
+        touchDeltaX = 0;
+    }, { passive: true });
+
+    gallery.addEventListener('touchmove', (event) => {
+        const currentTouchX = event.touches[0]?.clientX || 0;
+        touchDeltaX = currentTouchX - touchStartX;
+    }, { passive: true });
+
+    gallery.addEventListener('touchend', () => {
+        if (Math.abs(touchDeltaX) > 45) {
+            moveGallery(touchDeltaX > 0 ? -1 : 1);
+            startAutoplay();
+        }
+
+        touchStartX = 0;
+        touchDeltaX = 0;
+    });
+
+    updateGallery(0, false);
+    startAutoplay();
+}
+
 function enhanceReviewCards() {
     if (!document.body.classList.contains('reviews-page')) {
         return;
@@ -760,5 +922,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initSubTabs();
     initContactForm();
+    initProductGallery();
     enhanceReviewCards();
 });
